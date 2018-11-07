@@ -1,2 +1,2 @@
 # Risk-Mapping-RoR
-Mapa de riesgos  Ruby on Rails
+1 Desarrollo realizado con Base de datos MySql 
