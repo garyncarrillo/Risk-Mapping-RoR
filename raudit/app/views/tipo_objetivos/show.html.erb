@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_objetivo.descripcion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <% @Resultado = Estado.where(id:@tipo_objetivo.estado)
+  @Resultado.each do |row| %>
+        <%= row.descripcion %>
+  <%end %>       
+</p>
+
+<%= link_to 'Editar', edit_tipo_objetivo_path(@tipo_objetivo) %> |
+<%= link_to 'Atras', tipo_objetivos_path %>

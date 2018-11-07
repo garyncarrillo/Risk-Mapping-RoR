@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idprodimientos: MyString
+  descripcion: MyText
+  causa: MyText
+  efecto: MyText
+  r_categoria: MyText
+  nivel_riesgo_inherente: 1.5
+  f_natural: false
+  f_humano: false
+  f_proceso: false
+  f_tecnologico: false
+  f_otros: false
+
+two:
+  idprodimientos: MyString
+  descripcion: MyText
+  causa: MyText
+  efecto: MyText
+  r_categoria: MyText
+  nivel_riesgo_inherente: 1.5
+  f_natural: false
+  f_humano: false
+  f_proceso: false
+  f_tecnologico: false
+  f_otros: false

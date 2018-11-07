@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @procedimiento.nombre %>
+</p>
+
+<p>
+  <strong>Objetivo:</strong>
+  <%= @procedimiento.objetivo %>
+</p>
+
+<p>
+  <strong>Tipo objetivo:</strong>
+  <% @Resultado = TipoObjetivo.where(id:@procedimiento.tipo_objetivo)
+  @Resultado.each do |row| %>
+            <%= row.descripcion %>
+  <%end %>
+     
+</p>
+
+<p>
+  <strong>Nombre del Proceso:</strong>
+  <% @Resultado = Proceso.where(id:@procedimiento.idprocesos)
+  @Resultado.each do |row| %>
+            <%= row.nombre %>
+  <%end %>
+</p>
+
+<p>
+  <strong>Cargo lider:</strong>
+  <%= @procedimiento.cargo_lider %>
+</p>
+
+<%= link_to 'Editar', edit_procedimiento_path(@procedimiento) %> |
+<%= link_to 'Atras', procedimientos_path %>

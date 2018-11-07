@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Nombre del Procedimiento:</strong>
+  <% @Resultado = Procedimiento.where(id:@riesgo.idprodimientos)
+  @Resultado.each do |row| %>
+            <%= row.nombre %>
+  <%end %>
+</p>
+
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @riesgo.descripcion %>
+</p>
+
+<p>
+  <strong>Causa:</strong>
+  <%= @riesgo.causa %>
+</p>
+
+<p>
+  <strong>Efecto:</strong>
+  <%= @riesgo.efecto %>
+</p>
+
+<p>
+  <strong>R categoria:</strong>
+  <%= @riesgo.r_categoria %>
+</p>
+
+<p>
+  <strong>Nivel riesgo inherente:</strong>
+  <%= @riesgo.nivel_riesgo_inherente %>
+</p>
+
+<p>
+  <strong>F natural:</strong>
+  <%= @riesgo.f_natural %>
+</p>
+
+<p>
+  <strong>F humano:</strong>
+  <%= @riesgo.f_humano %>
+</p>
+
+<p>
+  <strong>F proceso:</strong>
+  <%= @riesgo.f_proceso %>
+</p>
+
+<p>
+  <strong>F tecnologico:</strong>
+  <%= @riesgo.f_tecnologico %>
+</p>
+
+<p>
+  <strong>F otros:</strong>
+  <%= @riesgo.f_otros %>
+</p>
+
+<%= link_to 'Editar', edit_riesgo_path(@riesgo) %> |
+<%= link_to 'Atras', riesgos_path %>

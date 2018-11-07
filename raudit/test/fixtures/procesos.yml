@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  objetivo: MyText
+  tipo_objetivo: MyString
+  tipo: MyString
+  centro: MyString
+  estado: MyString
+
+two:
+  nombre: MyString
+  objetivo: MyText
+  tipo_objetivo: MyString
+  tipo: MyString
+  centro: MyString
+  estado: MyString

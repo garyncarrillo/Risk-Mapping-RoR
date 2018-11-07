@@ -1,0 +1,74 @@
+<%= form_with(model: riesgo, local: true) do |form| %>
+  <% if riesgo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(riesgo.errors.count, "error") %> prohibited this riesgo from being saved:</h2>
+
+      <ul>
+      <% riesgo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idprodimientos %>
+   <%= form.collection_select(:idprodimientos, Procedimiento.all, :id, :nombre) %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :causa %>
+    <%= form.text_area :causa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :efecto %>
+    <%= form.text_area :efecto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :r_categoria %>
+    <%= form.text_area :r_categoria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nivel_riesgo_inherente %>
+    <%= form.text_field :nivel_riesgo_inherente %>
+  </div>
+
+  <div class="field">
+    <%= form.label :f_natural %>
+    <%= form.check_box :f_natural %>
+  </div>
+
+  <div class="field">
+    <%= form.label :f_humano %>
+    <%= form.check_box :f_humano %>
+  </div>
+
+  <div class="field">
+    <%= form.label :f_proceso %>
+    <%= form.check_box :f_proceso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :f_tecnologico %>
+    <%= form.check_box :f_tecnologico %>
+  </div>
+
+  <div class="field">
+    <%= form.label :f_otros %>
+    <%= form.check_box :f_otros %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

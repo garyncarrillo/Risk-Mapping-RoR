@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipo Procesos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipo_procesos.each do |tipo_proceso| %>
+      <tr>
+        <td><%= tipo_proceso.nombre %></td>
+        <td><%= link_to 'Mostrar', tipo_proceso %></td>
+        <td><%= link_to 'Editar', edit_tipo_proceso_path(tipo_proceso) %></td>
+        <td><%= link_to 'Eliminar', tipo_proceso, method: :delete, data: { confirm: 'Esta seguro que desea Eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Tipo Proceso', new_tipo_proceso_path %>

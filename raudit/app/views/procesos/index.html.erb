@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Procesos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Objetivo</th>
+      <th>Tipo objetivo</th>
+      <th>Tipo</th>
+      <th>Centro</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @procesos.each do |proceso| %>
+      <tr>
+        <td><%= proceso.nombre %></td>
+        <td><%= proceso.objetivo %></td>
+        <% @Resultado = TipoObjetivo.where(id:proceso.tipo_objetivo)
+        @Resultado.each do |row| %>
+            <td><%= row.descripcion %></td>
+        <%end %>  
+        <% @Resultado = TipoProceso.where(id:proceso.tipo)
+        @Resultado.each do |row| %>
+            <td><%= row.nombre %></td>
+        <%end %>  
+        <% @Resultado = Centro.where(id:proceso.centro)
+        @Resultado.each do |row| %>
+            <td><%= row.nombre %></td>
+        <%end %>  
+
+        <% @Resultado = Estado.where(id:proceso.estado)
+        @Resultado.each do |row| %>
+            <td><%= row.descripcion %></td>
+        <%end %>  
+
+
+        <td><%= link_to 'Mostrar', proceso %></td>
+        <td><%= link_to 'Editar', edit_proceso_path(proceso) %></td>
+        <td><%= link_to 'Eliminar', proceso, method: :delete, data: { confirm: 'Esta seguro que desea Eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Proceso', new_proceso_path %>

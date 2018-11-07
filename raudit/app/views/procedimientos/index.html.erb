@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Procedimientos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Objetivo</th>
+      <th>Tipo objetivo </th>
+      <th>Nombre del procesos</th>
+      <th>Cargo lider</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @procedimientos.each do |procedimiento| %>
+      <tr>
+        <td><%= procedimiento.nombre %></td>
+        <td><%= procedimiento.objetivo %></td>
+        <% @Resultado = TipoObjetivo.where(id:procedimiento.tipo_objetivo)
+        @Resultado.each do |row| %>
+            <td><%= row.descripcion %></td>
+        <%end %>
+        <% @Resultado = Proceso.where(id:procedimiento.idprocesos)
+        @Resultado.each do |row| %>
+            <td><%= row.nombre %></td>
+        <%end %>
+        <td><%= procedimiento.cargo_lider %></td>
+        <td><%= link_to 'Mostrar', procedimiento %></td>
+        <td><%= link_to 'Editar', edit_procedimiento_path(procedimiento) %></td>
+        <td><%= link_to 'Eliminar', procedimiento, method: :delete, data: { confirm: 'Estas seguro que deseas Eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Procedimiento', new_procedimiento_path %>

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Riesgos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idprodimientos</th>
+      <th>Descripcion</th>
+      <th>Causa</th>
+      <th>Efecto</th>
+      <th>R categoria</th>
+      <th>Nivel riesgo inherente</th>
+      <th>F natural</th>
+      <th>F humano</th>
+      <th>F proceso</th>
+      <th>F tecnologico</th>
+      <th>F otros</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @riesgos.each do |riesgo| %>
+      <tr>
+        <% @Resultado = Procedimiento.where(id:riesgo.idprodimientos)
+        @Resultado.each do |row| %>
+            <td><%= row.nombre %></td>
+        <%end %>
+        <td><%= riesgo.descripcion %></td>
+        <td><%= riesgo.causa %></td>
+        <td><%= riesgo.efecto %></td>
+        <td><%= riesgo.r_categoria %></td>
+        <td><%= riesgo.nivel_riesgo_inherente %></td>
+        <td><%= riesgo.f_natural %></td>
+        <td><%= riesgo.f_humano %></td>
+        <td><%= riesgo.f_proceso %></td>
+        <td><%= riesgo.f_tecnologico %></td>
+        <td><%= riesgo.f_otros %></td>
+        <td><%= link_to 'Mostrar', riesgo %></td>
+        <td><%= link_to 'Editar', edit_riesgo_path(riesgo) %></td>
+        <td><%= link_to 'Eliminar', riesgo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Riesgo', new_riesgo_path %>

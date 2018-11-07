@@ -1,0 +1,27 @@
+<%= form_with(model: tipo_objetivo, local: true) do |form| %>
+  <% if tipo_objetivo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_objetivo.errors.count, "error") %> prohibited this tipo_objetivo from being saved:</h2>
+
+      <ul>
+      <% tipo_objetivo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.collection_select(:estado, Estado.all, :id, :descripcion) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

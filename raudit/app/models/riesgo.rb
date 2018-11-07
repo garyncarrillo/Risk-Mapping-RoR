@@ -1,0 +1,2 @@
+class Riesgo < ApplicationRecord
+end

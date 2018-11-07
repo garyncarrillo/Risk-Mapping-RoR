@@ -1,0 +1,468 @@
+
+*{padding:0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+body {
+	background: url(../img/fondonubes.jpg) repeat-x top;
+	margin: 0;
+}
+#container {
+	position:absolute;
+	width:950px;
+	left: 50%;
+	margin-left: -450px;
+	z-index:1;
+	background-color:#FFFFFF;
+	height: 500px;}
+#ladoIz{
+	/*background:url(../img/ladoIz.png) right top;*/
+	/*width: 25px;*/
+	/*height: 600px;*/
+	position:absolute;
+	left: 0px;
+	margin-left:0px;}
+
+#ladoDer{
+	/*background:url(../img/ladoDer.png) left top;*/
+	/*width: 25px;*/
+	/*height: 600px;*/
+	position:absolute;
+	right: 0px;
+	margin-right:0px;}
+#logo{
+	position: relative;
+	margin: 20px 0 6px 20px;
+	overflow:hidden;
+	width: 226px;}
+#sombraBarra{
+	background:url(../img/sombraBarra.jpg) repeat-x bottom;
+	height: 13px;
+	position: relative;
+	width:950px;
+	margin: 0;
+	overflow: hidden;
+	float: left;}
+#barra{
+	background:url(../img/barra.gif) repeat-x top;
+	height: 41px;
+	position: relative;
+	width: 930px;
+	margin:0;
+	overflow: hidden;
+	padding: 0 10px 0 10px;
+	float: left;
+	vertical-align:middle;
+	}
+#divisionmenu{
+	background:url(../img/divMenu.jpg);
+	width: 1px;
+	height: 41px;
+	float:left;}
+a.linkMenu {
+	display: block;
+	/*height: 26px;*/
+	width: auto;
+	padding: 15px 30px 0 10px;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: none;
+	float: left;
+	line-height: 14px;
+	vertical-align:middle;}
+a.linkMenu:hover {
+	background:url(../img/barra-on.jpg) repeat-x;}
+a.linkMenu2 {
+	display: block;
+	height: 41px;
+	width: auto;
+	padding: 8px 30px 0 10px;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: none;
+	float: left;
+	line-height: 14px;}
+a.linkMenu2:hover {
+	background:url(../img/barra-on.jpg) repeat-x;}
+#contenidoGrande{
+	width: 910px;
+	margin: 30px 0 0 30px;
+	position: relative;
+	float: left;
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	font-size: 14px;}
+#contenidoGrandeSin{
+	width: 910px;
+	margin: 5px 0 0 30px;
+	position: relative;
+	float: left;
+    font-family: Raleway, Arial, Helvetica, sans-serif;	
+	font-size: 14px;}
+#contenidoGrandeSinNada{
+	width: 910px;
+	margin: 5px 0 0 5px;
+	position: relative;
+	float: left;
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	font-size: 14px;}
+#contenido{
+	width: 680px;
+	margin: 30px 0 0 30px;
+	position: relative;
+	line-height: 18px;
+	float: left;
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	font-size: 14px;
+	padding-right: 30px;
+	background: url(../img/divinterna.jpg) right bottom repeat-y;}
+#derecha{
+	width: 229px;
+	position: relative;
+	float: right;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	font-size: 14px;}
+.titulo{
+	 font-family: Raleway, Arial, Helvetica, sans-serif;
+	 color: #007577;
+	 font-size: 18px;}
+.subtitulo {	
+	color:#FFFFFF;
+	font-family:"Trebuchet MS";
+	font-size: 18px;
+	font-style:italic;
+	display:block;
+	background: #1d7bbb;
+	padding: 3px 3px 3px 6px;}
+#destacadoCentro {	position:relative;
+	width:663px;
+	padding: 10px 8px 10px 8px;
+	font-style:italic;
+	font-size: 16px;
+	color:#ffffff;
+	border-top: #ffffff double 3px;
+	border-top: #007577 double 3px;
+	border-bottom: double #ffffff 3px;
+	border-bottom: double #007577 3px;
+	background:#007577;
+	text-align:center;
+	font-family:"Trebuchet MS";}
+#destacadoDerecha {	position:relative;
+	width:200px;
+	float:right;
+	padding: 10px 8px 10px 8px;
+	margin: 5px 0 10px 15px;
+	font-style:italic;
+	font-size: 16px;
+	color:#007577;
+	border-top: #007577 1px dotted;
+	border-bottom: #007577 1px dotted;
+	background-color:#ecf6f7;
+	font-family:"Trebuchet MS";}
+#destacadoIzquierda {	
+	position:relative;
+	width:200px;
+	float:left;
+	padding: 10px 8px 10px 8px;
+	margin: 5px 15px 10px 0;
+	font-style:italic;
+	font-size: 16px;
+	color:#007577;
+	border-top: #007577 1px dotted;
+	border-bottom: #007577 1px dotted;
+	background-color:#ecf6f7;
+	text-align:right;
+	font-family:"Trebuchet MS";}
+#destacadoLargo {	
+	position:relative;
+	font-family:"Trebuchet MS";
+	float: left;
+	width:35%;
+	z-index:1;
+	padding: 75px 8px 10px 8px;
+	margin: 10px 15px 5px 0px;
+	font-style:italic;
+	font-size: 16px;
+	font-weight: bold;
+	color:#666666;
+	background-color:#ffffff;
+	border-top: 1px dotted #C1C1C1;
+	border-bottom: 1px dotted #C1C1C1;
+	text-align:center;
+	background: url(../img/icono.gif) center top no-repeat;}
+#destacadoLargoDer {
+	font-family:"Trebuchet MS";	
+	position:relative;
+	float: right;
+	width:35%;
+	padding: 75px 8px 10px 8px;
+	margin: 10px 0px 5px 15px;
+	font-style:italic;
+	font-size: 16px;
+	font-weight: bold;
+	color:#666666;
+	background-color:#ffffff;
+	border-top: 1px dotted #C1C1C1;
+	border-bottom: 1px dotted #C1C1C1;
+	text-align:center;
+	background: url(../img/icono.gif) center top no-repeat;
+	background-repeat: no-repeat;}
+a.botonEnviar {
+	background: url(../img/btn-fondo.jpg) no-repeat top;
+	text-align: center;
+	width: 91px;
+	height: 16px;
+	display: block;
+	color:#ffffff;
+	text-decoration: none;
+	padding-top: 2px;
+	font-size: 11px;
+	line-height: 13px;}
+a.botonEnviar:hover {
+	background: url(../img/btn-fondo-on.jpg) no-repeat top;}
+	
+	#botonesLogin
+	{
+	text-align: Right;
+	width: 680px;
+	margin: 30px 0 0 30px;
+	position: relative;
+	line-height: 18px;
+	float: Right;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding-right: 30px;
+	background: url(../img/divinterna.jpg) right bottom repeat-y;}
+	
+		
+a.linkMenuDerecha 
+{
+    text-align:right;
+	display: block;
+	height: 26px;
+	width: auto;
+	padding: 15px 30px 0 10px;
+	font-family: Raleway, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: 11px;
+	text-decoration: none;
+	float: left;
+	line-height: 14px;}
+	
+	.pier {
+background-color:#FFFFFF;
+border:1px solid #CCCCCC;
+float:right;
+margin-left:15px;
+padding:6px;
+}
+
+
+/****************************************************************/
+/*Manejo de Tablas*/
+/****************************************************************/
+
+/*
+table.formulario
+{
+   font-family: Verdana, Geneva, Arial, helvetica, sans-serif;   
+   border:1;
+}
+
+
+table.formulario td
+{
+   font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+    font-size:12px;
+    padding: 5px; 
+    background-color:#F5F5F5;   
+    border-color:#FFFFFF; 
+    border-bottom-style: none; 
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+}
+*/
+
+
+.tdColumnaFormDatos
+{
+   font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    padding: 5px; 
+    color:#666666;
+    /*background-color:#F5F5F5;      */
+    background-color:#FFFFFF; 
+    border-color:#D8D8D8; 
+    /*border-color:#F0F0F0; */
+    text-align:left;
+    border-bottom-style:solid; 
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+}
+.DatosCuadroTexto
+{
+  font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#666666; 
+    height:17px;
+    border-color:#E1E1E1; 
+    background-color:#FFFFFF; 
+    text-align:left;
+    border:1px;
+    border-bottom-style: solid; 
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+}
+
+.tdColumnaFormDatosDerecha
+{
+   font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    padding: 5px; 
+    color:#666666;
+    /*background-color:#F5F5F5;      */
+    background-color:#FFFFFF; 
+    border-color:#D8D8D8; 
+    /*border-color:#F0F0F0; */
+    text-align:right;
+    border-bottom-style:solid; 
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+}
+
+.tdColumnaFormDatosCentro
+{
+   font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    padding: 5px; 
+    color:#666666;
+    /*background-color:#F5F5F5;      */
+    background-color:#FFFFFF; 
+    border-color:#F0F0F0; 
+    /*border-color:#F0F0F0; */
+    text-align:center;
+    border-bottom-style:solid; 
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+}
+
+.tdColumnaForm
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    color:#666666;
+    font-weight:bold;
+    font-size:14px;
+    padding: 5px; 
+    text-align:left;
+    background-color:#E6E6E6;   
+    border-color:#FFFFFF; 
+    border-bottom-style: none; 
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+}	
+
+.tdColumnaFormEncabezado
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    color:#666666;
+    font-weight:bold;
+    font-size:14px;
+    padding: 2px; 
+    background-color:#E1E1E1;   
+    border-color:#F0F0F0; 
+    border-bottom-style:none; 
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+}	
+
+.tdColumnaFormEncabCentro
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    color:#666666;
+    font-weight:bold;
+    font-size:14px;
+    padding: 2px; 
+    text-align:center;
+    background-color:#E1E1E1;   
+    border-color:#F0F0F0; 
+    border-bottom-style:none; 
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+}	
+
+.tdColumnaBlanca
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    text-align:left;
+    border-bottom-style: none; 
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	border-color:#FFFFFF; 
+	background-color:#FFFFFF;
+    font-size:14px;
+}
+
+.tdColumnaCentrada
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    text-align:center;
+    border-bottom-style: none; 
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+    font-size:14px;
+}
+
+.DatosCuadroDiv
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#666666; 
+    background-color:#FFFFFF; 
+    text-align:justify;
+    border:1px solid #E1E1E1;
+    margin-left:15px;
+    padding:6px;
+}
+
+.DatosCuadroDivCentro
+{
+   font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#666666; 
+    background-color:#FFFFFF; 
+    text-align:center;
+    border:1px solid #E1E1E1;
+    margin-left:15px;
+    padding:6px;
+}
+
+.DatosCuadroDivCentroPad
+{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    color:#666666; 
+    background-color:#FFFFFF; 
+    text-align:center;
+    border:1px solid #E1E1E1;
+    padding:6px;
+}
+
+/****************************************************************/
+/*Manejo de Textos*/
+/****************************************************************/

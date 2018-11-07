@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tipo_proceso.nombre %>
+</p>
+
+<%= link_to 'Editar', edit_tipo_proceso_path(@tipo_proceso) %> |
+<%= link_to 'Atras', tipo_procesos_path %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Centros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Estados</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @centros.each do |centro| %>
+      <tr>
+        <td><%= centro.nombre %></td>
+        <% @Resultado = Estado.where(id:centro.estados_id)
+        @Resultado.each do |row| %>
+           <td><%= row.descripcion %></td>
+        <%end %>  
+        <td><%= link_to 'Mostrar', centro %></td>
+        <td><%= link_to 'Editar', edit_centro_path(centro) %></td>
+        <td><%= link_to 'Eliminar', centro, method: :delete, data: { confirm: 'Estas seguro que deseas Eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Centro', new_centro_path %>

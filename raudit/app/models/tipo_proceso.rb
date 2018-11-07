@@ -1,0 +1,2 @@
+class TipoProceso < ApplicationRecord
+end

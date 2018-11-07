@@ -1,0 +1,14 @@
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 55%;
+  margin-bottom: 15px;
+  
+}
+
+input[type=submit]{
+  height: auto !important;
+   width: 33%;
+}
+

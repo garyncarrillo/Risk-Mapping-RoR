@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @proceso.nombre %>
+</p>
+
+<p>
+  <strong>Objetivo:</strong>
+  <%= @proceso.objetivo %>
+</p>
+
+<p>
+  <strong>Tipo objetivo:</strong>
+  <% @Resultado = TipoObjetivo.where(id:@proceso.tipo_objetivo)
+  @Resultado.each do |row| %>
+     <%= row.descripcion %>
+  <%end %> 
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+
+  <% @Resultado = TipoProceso.where(id:@proceso.tipo)
+  @Resultado.each do |row| %>
+            <%= row.nombre %>
+  <%end %> 
+</p>
+
+<p>
+  <strong>Centro:</strong>
+   <% @Resultado = Centro.where(id:@proceso.centro)
+   @Resultado.each do |row| %>
+             <%= row.nombre %>
+   <%end %>  
+</p>
+
+<p>
+  <strong>Estado:</strong>
+ 
+  <% @Resultado = Estado.where(id:@proceso.estado)
+  @Resultado.each do |row| %>
+             <%= row.descripcion %>
+  <%end %>  
+</p>
+
+<%= link_to 'Editar', edit_proceso_path(@proceso) %> |
+<%= link_to 'Atras', procesos_path %>
