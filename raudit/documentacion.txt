@@ -105,3 +105,6 @@ https://scotch.io/tutorials/open-sublime-text-from-the-command-line-using-subl-e
 animacion de input text requerimiento obligatorios de css animaciones perfectas
 https://jonathan-harrell.com/advanced-css-form-styling/
 //////////////////////////////////////////
+
+# Exportar a excel
+https://ilsealejo.com/creando-un-excel-con-ruby-on-rails/
