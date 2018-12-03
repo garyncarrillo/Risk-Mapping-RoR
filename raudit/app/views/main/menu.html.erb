@@ -57,11 +57,13 @@
                             $('#frame').attr('src','../../tipo_objetivos/');  
                         });
                       
-                          $( "#Venta-cobrador" ).click(function() { 
+                        $( "#Venta-cobrador" ).click(function() { 
                             $('#frame').attr('src','http://localhost:3000/pagos/show_cobrador');  
                         });
 
-                    
+                        $( "#Paquetes-crear" ).click(function() { 
+                            $('#frame').attr('src','../../paquete_plans/');  
+                        });                    
 
 				});
 
@@ -97,6 +99,14 @@
                             <li name="Procedimiento-eliminar" id="Procedimiento-eliminar" class="pushy-link"><a>Eliminar</a></li>
                         </ul>
                     </li>
+                    <li class="pushy-submenu">
+                        <button>Plan de Auditoria  </button>
+                        <ul>
+                            <li name="Paquetes-crear" id="Paquetes-crear" class="pushy-link"><a>Crear Paquetes</a></li>
+                            <li name="Paquetes-recursos" id="Paquetes-recursos" class="pushy-link"><a>Asignar Recursos</a></li>
+                        </ul>
+                    </li>
+
                     <li class="pushy-submenu">
                         <button>Riesgos  </button>
                         <ul>

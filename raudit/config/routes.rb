@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :paquete_plans
   get 'password_resets/new'
   get 'password_resets/edit'
   resources :users

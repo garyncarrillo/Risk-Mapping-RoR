@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paquete Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ano</th>
+      <th>Alcance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paquete_plans.each do |paquete_plan| %>
+      <tr>
+        <td><%= paquete_plan.nombre %></td>
+        <td><%= paquete_plan.ano %></td>
+        <td><%= paquete_plan.alcance %></td>
+        <td><%= link_to 'Show', paquete_plan %></td>
+        <td><%= link_to 'Edit', edit_paquete_plan_path(paquete_plan) %></td>
+        <td><%= link_to 'Destroy', paquete_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paquete Plan', new_paquete_plan_path %>

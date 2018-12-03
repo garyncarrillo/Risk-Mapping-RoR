@@ -108,3 +108,11 @@ https://jonathan-harrell.com/advanced-css-form-styling/
 
 # Exportar a excel
 https://ilsealejo.com/creando-un-excel-con-ruby-on-rails/
+
+
+rails g scaffold paquete_plan nombre:string ano:string alcance:text 
+
+rails g scaffold  paquete_plan_to_procedimiento idpaquete:string  idprocedimiento:string 
+
+rails g scaffold parquetes_plan_to_fecha idpaquete:string responsable:string fecha_plan_i:date fecha_plan_f:date fecha_inicio:date fecha_fin:date
+
