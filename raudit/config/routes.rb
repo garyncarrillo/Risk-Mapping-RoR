@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'paquetes/asignar'
   resources :paquete_plans
   get 'password_resets/new'
   get 'password_resets/edit'
@@ -15,10 +16,15 @@ Rails.application.routes.draw do
   get 'main/menu'
   get 'getEstados' => 'estados#getEstados'
   post 'getEstados' => 'estados#getEstados'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :api do
   	get '/get_tprocedimientos' ,  to: 'tipo_procedimientos#get_Tipo'
+    get 'getpaquetes' => 'tipo_procedimientos#get_paquetes'
+    get 'getproceso' => 'tipo_procedimientos#get_procesos'
+    get 'getprocedimientos' => 'tipo_procedimientos#get_procedimientos'
   end 
 
 

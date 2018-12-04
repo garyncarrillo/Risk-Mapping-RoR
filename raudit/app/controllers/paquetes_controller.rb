@@ -1,0 +1,6 @@
+class PaquetesController < ApplicationController
+
+
+
+
+end
