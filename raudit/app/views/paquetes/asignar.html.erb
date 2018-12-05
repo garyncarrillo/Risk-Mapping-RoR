@@ -8,7 +8,7 @@
 	$(document).ready(function() {
 			load();
 			$( "#agregar" ).click(function() {	
-				var Items = document.getElementById("lista_procedimientos").value
+				var Items = document.getElementById("txt_procedimientos").value
 				//alert(document.getElementById("glista").value);
 				//alert('Blanco'+Items.trim());
 				
@@ -20,17 +20,23 @@
 				if($("#drop option:selected").value=== "undefined"){
 					alert("Debes seleccionar");
 				}else{
-					alert($("#drop option:selected").value);
+					//alert($("#drop option:selected").value);
 					$("#drop option:selected").remove();	
 				}
 				
 			});
 
+			$('#txt_procesos').change(function () { 
+					 var nombre = document.getElementById("txt_procesos").value
+   					 id_procesos = Buscar_procedimientos_procesos(nombre);
+			});
 
 			function load(){
+				 	//$("#spinner").show();
+				 	//$("#principal").hide();
 					load_paquetes();
 					load_procesos();
-					load_procedimientos();
+					//load_procedimientos();
 			}
 
 			function load_paquetes(){
@@ -78,6 +84,8 @@
 	                        		//alert(Items);
 	                        		$("#lista_procesos").append(" <option>"+Items+" </option>");
 							}
+							$("#spinner").hide();
+							$("#principal").show();
 	                },
 	                error:  function (data) { //una vez que el archivo recibe el request lo procesa y lo devuelve
 	                        alert("Error"+data);
@@ -85,24 +93,57 @@
 	        	});
 			}
 
-			function load_procedimientos(){
+			function load_procedimientos(id_proceso){
 			   $.ajax({
 	                data:  { 
-     			   		 'foo': 'bar', 
-        		  		 'foot': 'bares' 
+     			   		 'idprocesos': id_proceso
     				},
 	                url:   '/api/getprocedimientos', //archivo que recibe la peticion
 	                type:  'get', //método de envio
 	                dataType: "json",
 	                beforeSend: function () {
-	                        //alert('cargando informacion');
+	                       $("#lista_procedimientos2").hide();
+	                       $("#lista_procedimientos option").remove();
 	                },
 	                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+
 	                        for(i=0;i<response.back_end.length;i++){
 	                        		var Items = response.back_end[i]['nombre'];
-	                        		//alert(Items);
 	                        		$("#lista_procedimientos").append(" <option>"+Items+" </option>");
 							}
+							$("#lista_procedimientos2").show();
+							
+							
+
+	                },
+	                error:  function (data) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+	                        alert("Error"+data);
+	                }
+	        	});
+			}
+
+		    function Buscar_procedimientos_procesos(name){
+			   $.ajax({
+	                data:  { 
+     			   		 'nombre': name, 
+    				},
+	                url:   '/api/getprocedimientos_x_proceso/', //archivo que recibe la peticion
+	                type:  'get', //método de envio
+	                dataType: "json",
+	                beforeSend: function () {
+	                        //alert('cargando informacion');
+	                       //$("#spinner").show();
+	                },
+	                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+	                        var Items;
+	                        for(i=0;i<response.back_end.length;i++){
+	                        		Items = response.back_end[i]['id'];
+	                        		//alert(Items);
+	                        		//alert(Items);
+							}
+							$("#spinner").hide();
+							load_procedimientos(Items);
+							
 	                },
 	                error:  function (data) { //una vez que el archivo recibe el request lo procesa y lo devuelve
 	                        alert("Error"+data);
@@ -116,9 +157,13 @@
 
 </script>		
 <body>
-	<h1> Asignar Recursos a los paquetes </h1>
-	<br></br>
+  <div id="spinner">
+  		<img src="../assets/cargar2.gif" alt="Loading" />
+  </div>
 
+  <div id="principal" style="display: none;">
+  	<h1> Asignar Recursos a los paquetes </h1>
+	<br></br>
 	<label style="margin-left: 15%;" >Paquetes</label>
 	<input list="lista_paquetes" name="" style="margin-left: 15%; width: 30%;">
 	<datalist id="lista_paquetes">
@@ -126,7 +171,7 @@
 	</datalist>
 
 	<label style="margin-left: 15%;" >Procesos</label>
-	<input  name="lista_procesos" list="lista_procesos" style="margin-left: 15%; width: 30%;" />
+	<input  id="txt_procesos" name="lista_procesos" list="lista_procesos" style="margin-left: 15%; width: 30%;" />
 	<datalist id="lista_procesos">
 		<option></option>
 	</datalist>
@@ -134,7 +179,7 @@
 
 
 	<label style="margin-left: 15%;" >Procedimientos</label>
-	<input  id="lista_procedimientos" list="lista_procedimientos" style="margin-left: 15%; width: 30%;" />
+	<input  id="txt_procedimientos" name="lista_procedimientos2" list="lista_procedimientos" style="margin-left: 15%; width: 30%;" />
 	<datalist id="lista_procedimientos">
 		<option></option>
 	</datalist>
@@ -150,5 +195,8 @@
 	<input type="button" id="quitar" name="quitar" value="quitar" style="width: 10%; margin-left: 60%;">
 	<br></br>
 	<input type="button" id="guardar" name="" value="Guardar" style="width: 10%; margin-left: 5%;">
+ </div>
+
+
 </body>
 </html>

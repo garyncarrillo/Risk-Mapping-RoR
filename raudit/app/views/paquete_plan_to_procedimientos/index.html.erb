@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Paquete Plan To Procedimientos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idpaquete</th>
+      <th>Idprocedimiento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paquete_plan_to_procedimientos.each do |paquete_plan_to_procedimiento| %>
+      <tr>
+        <td><%= paquete_plan_to_procedimiento.idpaquete %></td>
+        <td><%= paquete_plan_to_procedimiento.idprocedimiento %></td>
+        <td><%= link_to 'Show', paquete_plan_to_procedimiento %></td>
+        <td><%= link_to 'Edit', edit_paquete_plan_to_procedimiento_path(paquete_plan_to_procedimiento) %></td>
+        <td><%= link_to 'Destroy', paquete_plan_to_procedimiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paquete Plan To Procedimiento', new_paquete_plan_to_procedimiento_path %>

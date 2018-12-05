@@ -1,0 +1,2 @@
+class PaquetePlanToProcedimiento < ApplicationRecord
+end

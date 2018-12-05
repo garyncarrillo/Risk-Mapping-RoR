@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :paquete_plan_to_procedimientos
   get 'paquetes/asignar'
   resources :paquete_plans
   get 'password_resets/new'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
     get 'getpaquetes' => 'tipo_procedimientos#get_paquetes'
     get 'getproceso' => 'tipo_procedimientos#get_procesos'
     get 'getprocedimientos' => 'tipo_procedimientos#get_procedimientos'
+    get 'getprocedimientos_x_proceso' => 'tipo_procedimientos#get_procedimiento_x_procesos'
+    get 'setpaquetes_x_procedimiento' => 'tipo_procedimientos#set_paquetes_x_procedimientos'
   end 
 
 

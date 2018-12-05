@@ -1,0 +1,27 @@
+<%= form_with(model: paquete_plan_to_procedimiento, local: true) do |form| %>
+  <% if paquete_plan_to_procedimiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paquete_plan_to_procedimiento.errors.count, "error") %> prohibited this paquete_plan_to_procedimiento from being saved:</h2>
+
+      <ul>
+      <% paquete_plan_to_procedimiento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idpaquete %>
+    <%= form.text_field :idpaquete %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idprocedimiento %>
+    <%= form.text_field :idprocedimiento %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
