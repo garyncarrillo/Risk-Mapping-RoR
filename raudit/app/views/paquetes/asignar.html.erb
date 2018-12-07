@@ -4,6 +4,7 @@
 	<title></title>
 	
 </head>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 			load();
@@ -16,7 +17,7 @@
 				var nombre_procedimientos = document.getElementById("txt_procedimientos").value
 				$("#drop").append(" <option>"+Items+" </option>");
 				$("#div-error").css("display", "block");
-				crear_paquete_to_procedimiento(nombre_paquetes, nombre_procesos, nombre_procedimientos)
+				//crear_paquete_to_procedimiento(nombre_paquetes, nombre_procesos, nombre_procedimiento)
 				//$("#div-error").append("<div id='flash_error'>Combinacion de email/password es invalido!!</div>");
 				
 			});
@@ -203,7 +204,7 @@
   	<h1> Asignar Recursos a los paquetes </h1>
 	<br></br>
 	<label style="margin-left: 15%;" >Paquetes</label>
-	<input list="lista_paquetes" name="txt_paquetes" name="txt_paquetes" style="margin-left: 15%; width: 30%;">
+	<input list="lista_paquetes" id="txt_paquetes" name="txt_paquetes" style="margin-left: 15%; width: 30%;">
 	<datalist id="lista_paquetes">
 		<option></option>
 	</datalist>
@@ -224,8 +225,7 @@
 	<br></br>
    <div id="div-error"  class="alert alert-danger" style="margin-left: 15%; width: 50%; display: none;">
           <button id="close-div-error" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-         
-    </div>
+   </div>
 	
 	<input type="button" id="agregar" name="" value="Agregar>>" style="width: 10%; margin-left: 60%;">
 	<br></br>
