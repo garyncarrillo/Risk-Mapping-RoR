@@ -14,16 +14,23 @@
 				//alert('Blanco'+Items.trim());
 				var nombre_paquete = document.getElementById("txt_paquetes").value
 				var nombre_proceso = document.getElementById("txt_procesos").value
-				var nombre_procedimientos = document.getElementById("txt_procedimientos").value
-				$("#drop").append(" <option>"+Items+" </option>");
-				$("#div-error").css("display", "block");
-				//crear_paquete_to_procedimiento(nombre_paquetes, nombre_procesos, nombre_procedimiento)
+				var nombre_procedimiento = document.getElementById("txt_procedimientos").value
+				crear_paquete_to_procedimiento(nombre_paquete, nombre_proceso, nombre_procedimiento);
 				//$("#div-error").append("<div id='flash_error'>Combinacion de email/password es invalido!!</div>");
 				
 			});
 			$( "#close-div-error" ).click(function() {	
-			   $("#div-error").css("display", "none");
+			   //$("#div-error").css("display", "none");
+			   $("#div-error").remove();
+			   alert("Hola clic al cerrar");
 			});
+
+			$( "#close-adv-error" ).click(function() {	
+			   alert("Hola clic al cerrar");
+			});
+
+
+
 			$( "#quitar" ).click(function() {	
 				if($("#drop option:selected").value=== "undefined"){
 					alert("Debes seleccionar");
@@ -159,7 +166,8 @@
 	        	});
 			}
 
-			function crear_paquete_to_procedimiento(paquete, proceso, procedimiento){
+			function  crear_paquete_to_procedimiento(paquete, proceso, procedimiento){
+				var Items="0", Items_nombre;
 				$.ajax({
 	                data:  { 
      			   		 'nombre_paquete': paquete, 
@@ -174,14 +182,27 @@
 	                       //$("#spinner").show();
 	                },
 	                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-	                        var Items;
+	                        
 	                        for(i=0;i<response.back_end.length;i++){
 	                        		Items = response.back_end[i]['id'];
+	                        		Items_nombre = response.back_end[i]['nombre'];
 	                        		//alert(Items);
 	                        		//alert(Items);
 							}
 							$("#spinner").hide();
-							load_procedimientos(Items);
+							//load_procedimientos(Items);
+							if(parseInt(Items)!=-909){
+								$("#drop").append(" <option>"+Items_nombre+" </option>");
+								$("#div-mensajes").append("	<div id='div-alerta' name='div-alerta' class='alert alert-success' role='alert' style='margin-left: 15%; width: 50%;'>"+
+								"<button id='close-adv-error' name='close-adv-error' type='button' class='close' data-dismiss='alert' aria-hidden='true' onclick='close_div_alerta()'>×</button>"+
+	  							"<strong>Se asocio correctamente !</strong> El paquete con el procedimiento. "+ Items_nombre+"</div>");
+							}else{
+								$("#div-error").css("display", "block");
+								$("#div-mensajes").append("	    <div id='div-error'  class='alert alert-danger' style='margin-left: 15%; width: 50%; '> "+
+	          					"<button id='close-div-error' name='close-div-error' type='button' class='close' data-dismiss='alert' aria-hidden='true' onclick='close_div()'>×</button>"+
+	          					"<strong>Error  al asociar!</strong> <option>"+Items_nombre+" </option></div>");
+							}
+							
 							
 	                },
 	                error:  function (data) { //una vez que el archivo recibe el request lo procesa y lo devuelve
@@ -192,8 +213,12 @@
 
 	});
 
-
-
+	function close_div(){
+		$("#div-error").remove();
+	}
+	function close_div_alerta(){
+		$("#div-alerta").remove();
+	}
 </script>		
 <body>
   <div id="spinner">
@@ -203,7 +228,7 @@
   <div id="principal" style="display: none;">
   	<h1> Asignar Recursos a los paquetes </h1>
 	<br></br>
-	<label style="margin-left: 15%;" >Paquetes</label>
+	<label style="margin-left: 15%;"  >Paquetes</label>
 	<input list="lista_paquetes" id="txt_paquetes" name="txt_paquetes" style="margin-left: 15%; width: 30%;">
 	<datalist id="lista_paquetes">
 		<option></option>
@@ -223,10 +248,10 @@
 		<option></option>
 	</datalist>
 	<br></br>
-   <div id="div-error"  class="alert alert-danger" style="margin-left: 15%; width: 50%; display: none;">
-          <button id="close-div-error" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-   </div>
-	
+
+	<div id="div-mensajes">
+
+	</div>
 	<input type="button" id="agregar" name="" value="Agregar>>" style="width: 10%; margin-left: 60%;">
 	<br></br>
         <select name="drop" id="drop" size="6" style="margin-left: 15%;">

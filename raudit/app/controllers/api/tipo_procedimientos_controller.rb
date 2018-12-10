@@ -36,7 +36,7 @@ class Api::TipoProcedimientosController < ApplicationController
         @procedimientos.each do |procedimiento|
         	@id_procedimieto = procedimiento.id
         end
-        
+       
        	@paquete = PaquetePlan.where(nombre:@name_paquete)
 
         @paquete.each do |paquetes|
@@ -45,13 +45,13 @@ class Api::TipoProcedimientosController < ApplicationController
         if @id_paquete.blank? or @id_procedimieto.blank? then 
         	# para validar si es  null o no 
         	# if @object.present? then 
-        	error = {"id":"-909","error":"el procedimiento o paquete no existe en la base de datos"}
-        	@id_procedimieto = error
+        	error = [{"id":"-909","nombre":"el procedimiento o paquete no existe en la base de datos"}]
+        	@procedimientos = error
         else
            @create_paquete_to_procedimiento = PaquetePlanToProcedimiento.create(idpaquete:@id_paquete, idprocedimiento:@id_procedimieto)
            puts 'Se creo correctamente'
         end 
         #http://localhost:3000/api/setpaquetes_x_procedimiento?nombre_paquete=Proyectos&nombre_proceso=vivienda&procedimiento=Procedimiento%20Administraci%C3%B3n%20de%20Versiones%20V2
-    	render json:{back_end: @id_procedimieto }, status: :ok  
+    	render json:{back_end: @procedimientos }, status: :ok  
     end
 end
