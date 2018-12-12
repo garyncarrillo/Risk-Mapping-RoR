@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_224648) do
+ActiveRecord::Schema.define(version: 2018_12_12_145613) do
 
   create_table "centros", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2018_12_05_224648) do
     t.string "nombre"
     t.string "ano"
     t.text "alcance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "paquetes_plan_to_fechas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "idpaquete"
+    t.string "responsable"
+    t.date "fecha_plan_i"
+    t.date "fecha_plan_f"
+    t.date "fecha_inicio"
+    t.date "fecha_fin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

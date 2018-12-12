@@ -1,0 +1,2 @@
+class PaquetesPlanToFecha < ApplicationRecord
+end

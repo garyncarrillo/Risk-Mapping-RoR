@@ -12,7 +12,7 @@ http://rubyonrails.org.es/instala.html
 
 gem install jdbc-db2
 
-Ruby list release
+Ruby list releaseperdimos
 https://www.ruby-lang.org/en/downloads/releases/
 
 
@@ -57,7 +57,12 @@ idriesgo:string r_velocidad:float probabilidad:float i_economico:float  i_social
 
 
 rails g scaffold user email:string name:string password:string estado:string password_digest:string remember_digest:string
-adicionando campos
+
+cambiar nombre de tabla
+rails generate migration AddNombredeMigrationToTabla campo1:tipo campo2:ti
+
+adicionar campo
+rails g migration AddIndexToApplication user_id:integer:index
 
 // activacion de cuenta por correo electronico
 rails generate controller AccountActivations --no-test-framework
@@ -114,5 +119,5 @@ rails g scaffold paquete_plan nombre:string ano:string alcance:text
 
 rails g scaffold  paquete_plan_to_procedimiento idpaquete:string  idprocedimiento:string 
 
-rails g scaffold parquetes_plan_to_fecha idpaquete:string responsable:string fecha_plan_i:date fecha_plan_f:date fecha_inicio:date fecha_fin:date
+rails g scaffold paquetes_plan_to_fecha idpaquete:string responsable:string fecha_plan_i:date fecha_plan_f:date fecha_inicio:date fecha_fin:date
 

@@ -1,0 +1,47 @@
+<%= form_with(model: paquetes_plan_to_fecha, local: true) do |form| %>
+  <% if paquetes_plan_to_fecha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paquetes_plan_to_fecha.errors.count, "error") %> prohibited this paquetes_plan_to_fecha from being saved:</h2>
+
+      <ul>
+      <% paquetes_plan_to_fecha.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idpaquete %>
+    <%= form.collection_select(:idpaquete, PaquetePlan.all, :id, :nombre) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsable %>
+    <%= form.text_field :responsable %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_plan_i %>
+    <%= form.date_select :fecha_plan_i %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_plan_f %>
+    <%= form.date_select :fecha_plan_f %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_inicio %>
+    <%= form.date_select :fecha_inicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_fin %>
+    <%= form.date_select :fecha_fin %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

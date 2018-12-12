@@ -18,9 +18,9 @@
         <td><%= paquete_plan.nombre %></td>
         <td><%= paquete_plan.ano %></td>
         <td><%= paquete_plan.alcance %></td>
-        <td><%= link_to 'Show', paquete_plan %></td>
-        <td><%= link_to 'Edit', edit_paquete_plan_path(paquete_plan) %></td>
-        <td><%= link_to 'Destroy', paquete_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', paquete_plan %></td>
+        <td><%= link_to 'Editar', edit_paquete_plan_path(paquete_plan) %></td>
+        <td><%= link_to 'Eliminar', paquete_plan, method: :delete, data: { confirm: 'Estas seguro que deseas Eliminar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Paquete Plan', new_paquete_plan_path %>
+<%= link_to 'Nuevo Paquete', new_paquete_plan_path %>

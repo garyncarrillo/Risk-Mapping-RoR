@@ -54,4 +54,26 @@ class Api::TipoProcedimientosController < ApplicationController
         #http://localhost:3000/api/setpaquetes_x_procedimiento?nombre_paquete=Proyectos&nombre_proceso=vivienda&procedimiento=Procedimiento%20Administraci%C3%B3n%20de%20Versiones%20V2
     	render json:{back_end: @procedimientos }, status: :ok  
     end
+
+    def procedimiento_to_fecha
+        
+    end 
+
+    def get_procedimiento_x_paquete
+        @name_paquete =  params[:nombre_paquete]
+        @paquete = PaquetePlan.where(nombre:@name_paquete)
+        @paquete.each do |paquetes|
+            @id_paquete = paquetes.id
+        end
+        if @id_paquete.blank? then
+            error = [{"id":"-909","nombre":"no existe procedimiento asociado al paquete"}]
+            @lista_procedimiento = error
+        else
+            @lista_procedimiento = PaquetePlanToProcedimiento.where(idpaquete:@id_paquete)
+
+        end 
+        
+       render json:{back_end: @lista_procedimiento }, status: :ok    
+    end 
+
 end

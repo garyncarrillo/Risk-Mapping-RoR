@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idpaquete:</strong>
+  <% @Resultado = PaquetePlan.where(id:@paquetes_plan_to_fecha.idpaquete)
+  @Resultado.each do |row| %>
+            <%= row.nombre %>
+  <%end %>
+</p>
+
+<p>
+  <strong>Responsable:</strong>
+  <%= @paquetes_plan_to_fecha.responsable %>
+</p>
+
+<p>
+  <strong>Fecha plan i:</strong>
+  <%= @paquetes_plan_to_fecha.fecha_plan_i %>
+</p>
+
+<p>
+  <strong>Fecha plan f:</strong>
+  <%= @paquetes_plan_to_fecha.fecha_plan_f %>
+</p>
+
+<p>
+  <strong>Fecha inicio:</strong>
+  <%= @paquetes_plan_to_fecha.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Fecha fin:</strong>
+  <%= @paquetes_plan_to_fecha.fecha_fin %>
+</p>
+
+<%= link_to 'Editar', edit_paquetes_plan_to_fecha_path(@paquetes_plan_to_fecha) %> |
+<%= link_to 'Atras', paquetes_plan_to_fechas_path %>
