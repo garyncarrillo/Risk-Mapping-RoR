@@ -32,7 +32,6 @@ class Api::TipoProcedimientosController < ApplicationController
     	@name_proceso =  params[:nombre_proceso]
     	@name_procedimiento =  params[:procedimiento]
     	@procedimientos = Procedimiento.where(nombre:@name_procedimiento)
-        
         @procedimientos.each do |procedimiento|
         	@id_procedimieto = procedimiento.id
         end
@@ -66,14 +65,33 @@ class Api::TipoProcedimientosController < ApplicationController
             @id_paquete = paquetes.id
         end
         if @id_paquete.blank? then
-            error = [{"id":"-909","nombre":"no existe procedimiento asociado al paquete"}]
+            error = [{"id":"-909","nombre":"no se pueden cargar los procedimieto del paquete seleccionado"}]
             @lista_procedimiento = error
         else
-            @lista_procedimiento = PaquetePlanToProcedimiento.where(idpaquete:@id_paquete)
+            @lista_procedimiento = PaquetePlanToProcedimiento.where(idpaquete:@id_paquete).joins("LEFT JOIN Procedimientos ON Procedimientos.id = paquete_plan_to_procedimientos.idprocedimiento").select("paquete_plan_to_procedimientos.id as P_Key, paquete_plan_to_procedimientos.idpaquete , paquete_plan_to_procedimientos.idprocedimiento ,Procedimientos.nombre , Procedimientos.id")
 
         end 
         
        render json:{back_end: @lista_procedimiento }, status: :ok    
     end 
+
+    def eliminar_procedimiento_x_paquete
+        @name_paquete =  params[:nombre_paquete]
+        @name_procedimiento =  params[:nombre_procedimiento]
+        @paquete = PaquetePlan.where(nombre:@name_paquete)
+        @paquete.each do |paquetes|
+            @id_paquete = paquetes.id
+        end
+        @procedimientos = Procedimiento.where(nombre:@name_procedimiento)
+        @procedimientos.each do |procedimiento|
+            @id_procedimieto = procedimiento.id
+        end
+        if @id_paquete.blank? or @id_procedimieto.blank? then 
+             @eliminar = [{"id":"-909","nombre":"no existe la relacion de procedimiento paquete para eliminarlo"}]
+        else
+           @eliminar = PaquetePlanToProcedimiento.where(idpaquete:@id_paquete , idprocedimiento:@id_procedimieto ).destroy_all
+        end
+        render json:{back_end: @eliminar }, status: :ok    
+    end     
 
 end

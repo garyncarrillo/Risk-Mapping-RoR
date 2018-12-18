@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_145613) do
+ActiveRecord::Schema.define(version: 2018_12_18_211405) do
 
   create_table "centros", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(version: 2018_12_12_145613) do
   end
 
   create_table "paquete_plan_to_procedimientos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "idpaquete"
-    t.string "idprocedimiento"
+    t.bigint "idpaquete"
+    t.bigint "idprocedimiento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["idpaquete"], name: "fk_rails_c24bde0606"
+    t.index ["idprocedimiento"], name: "fk_rails_f4df32400a"
   end
 
   create_table "paquete_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_145613) do
     t.string "nombre"
     t.text "objetivo"
     t.string "tipo_objetivo"
-    t.string "idprocesos"
+    t.bigint "idprocesos"
     t.string "cargo_lider"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -117,4 +119,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_145613) do
     t.datetime "reset_sent_at"
   end
 
+  add_foreign_key "paquete_plan_to_procedimientos", "paquete_plans", column: "idpaquete"
+  add_foreign_key "paquete_plan_to_procedimientos", "procedimientos", column: "idprocedimiento"
 end

@@ -117,7 +117,19 @@ https://ilsealejo.com/creando-un-excel-con-ruby-on-rails/
 
 rails g scaffold paquete_plan nombre:string ano:string alcance:text 
 
-rails g scaffold  paquete_plan_to_procedimiento idpaquete:string  idprocedimiento:string 
+rails g scaffold  paquete_plan_to_procedimiento idpaquete:bigint  idprocedimiento:bigint 
 
 rails g scaffold paquetes_plan_to_fecha idpaquete:string responsable:string fecha_plan_i:date fecha_plan_f:date fecha_inicio:date fecha_fin:date
 
+
+rails generate migration keyPaquetePlanToProcedimiento
+
+#Agregar foreing keys
+class KeyPaquetePlanToProcedimiento < ActiveRecord::Migration[5.2]
+  def change
+  	add_foreign_key :paquete_plan_to_procedimientos, :procedimientos, column: :idprocedimiento
+  	add_foreign_key :paquete_plan_to_procedimientos, :paquete_plans, column: :idpaquete
+  end
+end
+
+rails generate migration Add_paquete_plan_to_procedimientos
