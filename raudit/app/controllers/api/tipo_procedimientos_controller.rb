@@ -92,7 +92,7 @@ class Api::TipoProcedimientosController < ApplicationController
 
     def get_plan_auditoria
         @ano_plan =  params[:ano_plan]    
-        @plan = PaquetePlan.where(ano:@ano_plan).joins("LEFT JOIN paquete_plan_to_procedimientos ON paquete_plans.id= paquete_plan_to_procedimientos.idpaquete LEFT JOIN  Procedimientos ON Procedimientos.id = paquete_plan_to_procedimientos.idprocedimiento LEFT JOIN paquetes_plan_to_fechas ON paquetes_plan_to_fechas.idpaquete=paquete_plans.id ").select(" paquete_plans.id as id_paquete, paquete_plans.nombre as nombre_paquete,Procedimientos.id ,Procedimientos.nombre nombre_procedimiento , paquetes_plan_to_fechas.responsable, fecha_plan_i,   fecha_plan_f , dias ,comentarios ")
+        @plan = PaquetePlan.where(ano:@ano_plan).joins("LEFT JOIN paquete_plan_to_procedimientos ON paquete_plans.id= paquete_plan_to_procedimientos.idpaquete LEFT JOIN  Procedimientos ON Procedimientos.id = paquete_plan_to_procedimientos.idprocedimiento LEFT JOIN paquetes_plan_to_fechas ON paquetes_plan_to_fechas.idpaquete=paquete_plans.id ").select(" paquete_plans.id as id_paquete, paquete_plans.nombre as nombre_paquete,Procedimientos.id ,Procedimientos.nombre nombre_procedimiento , paquetes_plan_to_fechas.responsable, fecha_plan_i,   fecha_plan_f , dias ,comentarios ").order("paquetes_plan_to_fechas.fecha_plan_i desc")
         render json:{back_end: @plan }, status: :ok    
     end 
 end
