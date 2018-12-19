@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Objetivo</th>
-      <th>Tipo objetivo</th>
-      <th>Tipo</th>
-      <th>Centro</th>
-      <th>Estado</th>
+      <!-- <th>Objetivo</th> -->
+      <!-- <th>Tipo objetivo</th> -->
+      <th>Tipo de proceso</th>
+      <th>Centro de Costo</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +19,7 @@
     <% @procesos.each do |proceso| %>
       <tr>
         <td><%= proceso.nombre %></td>
-        <td><%= proceso.objetivo %></td>
-        <% @Resultado = TipoObjetivo.where(id:proceso.tipo_objetivo)
-        @Resultado.each do |row| %>
-            <td><%= row.descripcion %></td>
-        <%end %>  
+        <!-- <td><%= proceso.objetivo %></td> -->
         <% @Resultado = TipoProceso.where(id:proceso.tipo)
         @Resultado.each do |row| %>
             <td><%= row.nombre %></td>
@@ -32,13 +28,6 @@
         @Resultado.each do |row| %>
             <td><%= row.nombre %></td>
         <%end %>  
-
-        <% @Resultado = Estado.where(id:proceso.estado)
-        @Resultado.each do |row| %>
-            <td><%= row.descripcion %></td>
-        <%end %>  
-
-
         <td><%= link_to 'Mostrar', proceso %></td>
         <td><%= link_to 'Editar', edit_proceso_path(proceso) %></td>
         <td><%= link_to 'Eliminar', proceso, method: :delete, data: { confirm: 'Esta seguro que desea Eliminar?' } %></td>

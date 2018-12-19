@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'setpaquetes_x_procedimiento' => 'tipo_procedimientos#set_paquetes_x_procedimientos'
     get 'getprocedimiento_x_paquete' => 'tipo_procedimientos#get_procedimiento_x_paquete'
     get 'delprocedimiento_paquete' => 'tipo_procedimientos#eliminar_procedimiento_x_paquete'
+    get 'plan' => 'tipo_procedimientos#get_plan_auditoria'
   end 
 
 

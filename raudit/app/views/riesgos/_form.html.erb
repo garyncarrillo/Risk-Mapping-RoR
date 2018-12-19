@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :idprodimientos %>
+    <%= form.label 'Procedimientos' %>
    <%= form.collection_select(:idprodimientos, Procedimiento.all, :id, :nombre) %>
   </div>
 
@@ -34,37 +34,37 @@
   </div>
 
   <div class="field">
-    <%= form.label :r_categoria %>
+    <%= form.label 'Categoria del riesgo' %>
     <%= form.text_area :r_categoria %>
   </div>
 
   <div class="field">
-    <%= form.label :nivel_riesgo_inherente %>
+    <%= form.label 'Nivel de riesgo inherente' %>
     <%= form.text_field :nivel_riesgo_inherente %>
   </div>
 
   <div class="field">
-    <%= form.label :f_natural %>
+    <%= form.label 'Factor natural' %>
     <%= form.check_box :f_natural %>
   </div>
 
   <div class="field">
-    <%= form.label :f_humano %>
+    <%= form.label 'Factor humano' %>
     <%= form.check_box :f_humano %>
   </div>
 
   <div class="field">
-    <%= form.label :f_proceso %>
+    <%= form.label 'Factor de proceso' %>
     <%= form.check_box :f_proceso %>
   </div>
 
   <div class="field">
-    <%= form.label :f_tecnologico %>
+    <%= form.label 'Factor tecnologico' %>
     <%= form.check_box :f_tecnologico %>
   </div>
 
   <div class="field">
-    <%= form.label :f_otros %>
+    <%= form.label 'Otros factores'%>
     <%= form.check_box :f_otros %>
   </div>
 
