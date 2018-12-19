@@ -1,16 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Asignar fecha a los paquetes</h1>
-<br></br>
+<h1>Asignar tiempos a paquetes</h1>
+
 <table>
   <thead>
     <tr>
       <th>Idpaquete</th>
       <th>Responsable</th>
-      <th>Fecha plan inicial</th>
-      <th>Fecha plan Final</th>
-      <th>Fecha Inicio</th>
+      <th>Fecha plan i</th>
+      <th>Fecha plan f</th>
+      <th>Fecha inicio</th>
       <th>Fecha fin</th>
+      <th>Dias</th>
+      <th>Comentarios</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,6 +29,8 @@
         <td><%= paquetes_plan_to_fecha.fecha_plan_f %></td>
         <td><%= paquetes_plan_to_fecha.fecha_inicio %></td>
         <td><%= paquetes_plan_to_fecha.fecha_fin %></td>
+        <td><%= paquetes_plan_to_fecha.dias %></td>
+        <td><%= paquetes_plan_to_fecha.comentarios %></td>
         <td><%= link_to 'Mostrar', paquetes_plan_to_fecha %></td>
         <td><%= link_to 'Editar', edit_paquetes_plan_to_fecha_path(paquetes_plan_to_fecha) %></td>
         <td><%= link_to 'Eliminar', paquetes_plan_to_fecha, method: :delete, data: { confirm: 'Estas seguro que deseas Eliminar?' } %></td>
@@ -37,4 +41,4 @@
 
 <br>
 
-<%= link_to 'Nuevo', new_paquetes_plan_to_fecha_path %>
+<%= link_to 'Nuevo Paquetes Plan To Fecha', new_paquetes_plan_to_fecha_path %>

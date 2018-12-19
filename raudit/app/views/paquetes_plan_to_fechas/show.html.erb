@@ -33,5 +33,15 @@
   <%= @paquetes_plan_to_fecha.fecha_fin %>
 </p>
 
+<p>
+  <strong>Dias:</strong>
+  <%= @paquetes_plan_to_fecha.dias %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @paquetes_plan_to_fecha.comentarios %>
+</p>
+
 <%= link_to 'Editar', edit_paquetes_plan_to_fecha_path(@paquetes_plan_to_fecha) %> |
 <%= link_to 'Atras', paquetes_plan_to_fechas_path %>

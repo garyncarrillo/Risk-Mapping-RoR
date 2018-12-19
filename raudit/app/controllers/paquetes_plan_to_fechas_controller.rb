@@ -69,6 +69,6 @@ class PaquetesPlanToFechasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paquetes_plan_to_fecha_params
-      params.require(:paquetes_plan_to_fecha).permit(:idpaquete, :responsable, :fecha_plan_i, :fecha_plan_f, :fecha_inicio, :fecha_fin)
+      params.require(:paquetes_plan_to_fecha).permit(:idpaquete, :responsable, :fecha_plan_i, :fecha_plan_f, :fecha_inicio, :fecha_fin, :dias, :comentarios)
     end
 end

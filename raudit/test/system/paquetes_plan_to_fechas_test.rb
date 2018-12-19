@@ -14,6 +14,8 @@ class PaquetesPlanToFechasTest < ApplicationSystemTestCase
     visit paquetes_plan_to_fechas_url
     click_on "New Paquetes Plan To Fecha"
 
+    fill_in "Comentarios", with: @paquetes_plan_to_fecha.comentarios
+    fill_in "Dias", with: @paquetes_plan_to_fecha.dias
     fill_in "Fecha Fin", with: @paquetes_plan_to_fecha.fecha_fin
     fill_in "Fecha Inicio", with: @paquetes_plan_to_fecha.fecha_inicio
     fill_in "Fecha Plan F", with: @paquetes_plan_to_fecha.fecha_plan_f
@@ -30,6 +32,8 @@ class PaquetesPlanToFechasTest < ApplicationSystemTestCase
     visit paquetes_plan_to_fechas_url
     click_on "Edit", match: :first
 
+    fill_in "Comentarios", with: @paquetes_plan_to_fecha.comentarios
+    fill_in "Dias", with: @paquetes_plan_to_fecha.dias
     fill_in "Fecha Fin", with: @paquetes_plan_to_fecha.fecha_fin
     fill_in "Fecha Inicio", with: @paquetes_plan_to_fecha.fecha_inicio
     fill_in "Fecha Plan F", with: @paquetes_plan_to_fecha.fecha_plan_f

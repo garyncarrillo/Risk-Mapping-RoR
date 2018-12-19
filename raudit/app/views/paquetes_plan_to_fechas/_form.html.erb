@@ -41,6 +41,16 @@
     <%= form.date_select :fecha_fin %>
   </div>
 
+  <div class="field">
+    <%= form.label :dias %>
+    <%= form.number_field :dias %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentarios %>
+    <%= form.text_area :comentarios %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

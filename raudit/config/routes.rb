@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :paquete_plan_to_procedimientos
   resources :paquetes_plan_to_fechas
+  resources :paquete_plan_to_procedimientos
   get 'paquetes/asignar'
   resources :paquete_plans
   get 'password_resets/new'

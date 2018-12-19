@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_211405) do
+ActiveRecord::Schema.define(version: 2018_12_19_183338) do
 
   create_table "centros", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -43,12 +43,14 @@ ActiveRecord::Schema.define(version: 2018_12_18_211405) do
   end
 
   create_table "paquetes_plan_to_fechas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "idpaquete"
+    t.bigint "idpaquete"
     t.string "responsable"
     t.date "fecha_plan_i"
     t.date "fecha_plan_f"
     t.date "fecha_inicio"
     t.date "fecha_fin"
+    t.integer "dias"
+    t.text "comentarios"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
