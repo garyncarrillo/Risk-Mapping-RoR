@@ -1,0 +1,96 @@
+<header>
+	        <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+	$(document).ready(function(){
+			$( "#btnConsulta" ).click(function() {
+				var periodo =  $( "#select_periodo option:checked" ).val();
+				//alert(periodo);
+				Cargar_Plan(periodo);
+			});
+            
+		
+
+		    function Cargar_Plan(periodo){
+			   $.ajax({
+	                data:  { 
+     			   		 'ano_plan': periodo 
+    				},
+	                url:   '/api/plan', //archivo que recibe la peticion
+	                type:  'get', //método de envio
+	                dataType: "json",
+	                beforeSend: function () {
+	                        //alert('cargando informacion');
+	                },
+	                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+	                        for(i=0;i<response.back_end.length;i++){
+	                        		var Nombre_paquete = response.back_end[i]['nombre_paquete'];
+	                        		var Nombre_proceso = response.back_end[i]['nombre_proceso'];
+	                        		var Fecha_Plan = response.back_end[i]['fecha_plan_i'];
+	                        		var Nombre_procedimiento = response.back_end[i]['nombre_procedimiento'];
+	                        		var Responsable = response.back_end[i]['responsable'];
+	                        		var F_Planeacion_i = response.back_end[i]['fecha_plan_i'];
+	                        		var F_Planeacion_f = response.back_end[i]['fecha_plan_f'];
+	                        		var Dias = response.back_end[i]['dias'];
+	                        		var Fecha_asignacion = response.back_end[i]['fecha_inicio'];
+	                        		var Fecha_Entrega = response.back_end[i]['fecha_fin'];
+	                        		var adicionar = "<tr>"+
+	                        						" <td style='border: green 1px solid;'>"+Nombre_paquete+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+Nombre_proceso+"</td>"+
+	                        						//" <td style='border: green 1px solid;'>"+Fecha_Plan+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+Nombre_procedimiento+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+Responsable+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+F_Planeacion_i+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+F_Planeacion_f+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+Dias+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+Fecha_asignacion+"</td>"+
+	                        						" <td style='border: green 1px solid;'>"+Fecha_asignacion+"</td>"+
+	                        						" <td style='border: green 1px solid;'>**</td>"+
+	                        						" <td style='border: green 1px solid;'>**</td>"+
+	                        					    "</tr>";
+	                        		$("#tabla_plan").append(adicionar);
+							}
+	                },
+	                error:  function (data) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+	                        alert("Error"+data);
+	                }
+	        	});
+			}
+	});
+
+   </script>
+
+</header>
+
+
+
+
+<div style="margin-left: 0%; ">
+	<h1>Reporte del plan de Auditoria Interna</h1>
+	<p >Find me in app/views/paquetes/plan.html.erb</p>
+	<label><STRONG></STRONG>Periodo del plan</label>
+	<select id="select_periodo" style="width: 13%;" >
+		<option value="2018">2018</option>
+		<option value="2019">2019</option>
+	</select>
+	<button id="btnConsulta" name="btnConsulta">Consultar</button>
+	<br></br>
+	<div id="div-tabla" name="div-tabla" >
+		<table id="tabla_plan" name="tabla_plan"  style="border: red 1px solid; width:72%;">
+		  <tr style="border: green 1px solid; ">
+		  	<th style="border: green 1px solid;  padding: 2px; width: 1%">Paquete</th>
+		  	<th style="border: green 1px solid;  padding: 2px; width: 1%;">Proceso</th>
+		    <!-- <th style="border: green 1px solid;  padding: 10px;">Fecha</th> -->
+		    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Procedimiento</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Responsable</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 2%">Fec. Plan. Iniciar</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 2%">Fec. Plan. Finalizar</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 1%">Dias</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 2%">Fec. de Asignacion</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 2%">Fec. de Entrega</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 2%">Entrega</th>
+		    <th style="border: green 1px solid;  padding: 1px; width: 2%">Estado</th>
+		  </tr>
+		</table>
+	</div>
+</div>
