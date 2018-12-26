@@ -11,7 +11,7 @@
   		margin-left: 2%;
   	}
 
-	#div-tabla-filtros{
+	.tabla-filtros{
 		padding: 20px
 		border: green 1px solid;
 	}
@@ -21,6 +21,8 @@
     <script type="text/javascript" src="/assets/jquery-3.3.1.js"></script>
     <script type="text/javascript">
 	$(document).ready(function(){
+	
+
 			$( "#btnConsulta" ).click(function() {
 				var periodo =  $( "#select_periodo option:checked" ).val();
 				//alert(periodo);
@@ -28,10 +30,9 @@
 			});
             
             $( "#btn-agregar-filtro" ).click(function() {
-            		var Texto= "	<tr> "+
-							   " <td><p> "+
-							   "<select> "+
-							   " <option>-</option> "+
+            		var Texto= "	<tr id='div-fila-filtros' name='div-fila-filtros'> "+
+            				   " <td><p> "+"<select> "+
+							   " <option>-</option> "+ 
 							   " <option>Responsable</option> "+
 							   "	<option>Estado</option> "+
 							   " </select> "+
@@ -40,6 +41,7 @@
 							   " <td> "+
 							   " <p>  "+
 							   " <select> "+
+							   "<option>-</option>"+
 							   " <option>contiene</option> "+
 							   " <option>igual</option> "+
 							   " <option>></option> "+
@@ -52,6 +54,9 @@
 					           " <td> "+
 						       " <p><input type='text' name='' placeholder='Escriba sus texto de busqueda' style='width: 100%;''></p>"+	
 					           "</td>"+
+					           "<td>"+
+				"<p><input type='button' value=' --- ' id='btn-close' style='width: 100%;' onclick='close_div()'></p>"+
+						       "</td>"+
 				               "</tr>";
             		$( "#div-tabla-filtros").append(Texto);
             });	
@@ -111,7 +116,9 @@
 	        	});
 			}
 	});
-
+	function close_div(){
+		$("#div-fila-filtros").remove();
+	}
    </script>
 
 </header>
@@ -134,41 +141,46 @@
 		</p>
 	</div>
 	
-	<div class="div-consulta" id="div-select-filtro" name="div-select-filtro">
+	<div class="div-consulta" id="div-select-filtro" name="div-select-filtro" style="width: 40%;">
 			<input type="button" id="btn-agregar-filtro" value="+" style="margin-left: 90%; width: 10%;">
 			<br></br>
-			<table class="tabla-filtros" id="div-tabla-filtros">
+			<table class="tabla-filtros" id="div-tabla-filtros" style="border: 1px solid; width: 150%;">
 				<tr>
-					<th>Campo:</th>
-					<th>Tipo:</th>
+					<th style="width: 30%;">Campo:</th>
+					<th style="width: 30%;" >Tipo:</th>
 					<th>Texto de busqueda:</th>
-				</tr>
+					<th></th>
+				</tr >
+					<tr id="div-fila-filtros" name="div-fila-filtros">
+						<td  ><p>
+								<select>
+									<option>-</option>
+									<option>Responsable</option>
+									<option>Estado</option>
+								</select>
+							</p>
+						</td>
+						<td >
+							<p> 
+								<select>
+									<option>-</option>
+									<option>contiene</option>
+									<option>igual</option>
+									<option>></option>
+									<option>>=</option>
+									<option><</option>
+									<option><=</option>
+								</select>
+							</p>	
+						</td>
+						<td style="width: 200%;">
+							<p><input type="text" name="" placeholder="Escriba sus texto de busqueda" style="width: 100%;"></p>	
+						</td>
+						<td>
+							<p><input type="button" value=" --- " id="btn-close" onclick="close_div();" style="width: 100%;"></p>
+						</td>
+					</tr>
 				
-				<tr">
-					<td><p>
-							<select>
-								<option>-</option>
-								<option>Responsable</option>
-								<option>Estado</option>
-							</select>
-						</p>
-					</td>
-					<td>
-						<p> 
-							<select>
-								<option>contiene</option>
-								<option>igual</option>
-								<option>></option>
-								<option>>=</option>
-								<option><</option>
-								<option><=</option>
-							</select>
-						</p>	
-					</td>
-					<td>
-						<p><input type="text" name="" placeholder="Escriba sus texto de busqueda" style="width: 100%;"></p>	
-					</td>
-				</tr>
 			</table>
 			<p><input type="button" name="" value="Consultar" style="width: 25%;"></p>
 				
