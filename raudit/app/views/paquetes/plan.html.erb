@@ -22,7 +22,21 @@
     <script type="text/javascript">
 	$(document).ready(function(){
 	
-
+			$( "#btn-filtro" ).click(function() {
+				//$("#select-campo option:selected").each(function(){
+				//	  alert($(this).text());
+				//	  //alert($(this).attr('id'));
+			    //});
+			    $.each($("select"), function(){
+			    	var Objeto = $(this).attr('id');
+			    	$(this).each(function(){
+			    		alert($(this).text());
+			    	});	
+			    	//alert($(this).text());
+			    	//alert(Objeto);
+			    });
+			 
+			});
 			$( "#btnConsulta" ).click(function() {
 				var periodo =  $( "#select_periodo option:checked" ).val();
 				//alert(periodo);
@@ -31,7 +45,7 @@
             
             $( "#btn-agregar-filtro" ).click(function() {
             		var Texto= "	<tr id='div-fila-filtros' name='div-fila-filtros'> "+
-            				   " <td><p> "+"<select> "+
+            				   " <td><p> "+"<select id='select-campo' name='select-campo' >"+
 							   " <option>-</option> "+ 
 							   " <option>Responsable</option> "+
 							   "	<option>Estado</option> "+
@@ -40,9 +54,9 @@
 					           " </td> "+
 							   " <td> "+
 							   " <p>  "+
-							   " <select> "+
+							   " <select id='select-tipo' name='select-tipo'> "+
 							   "<option>-</option>"+
-							   " <option>contiene</option> "+
+							   " <option>contiene-2</option> "+
 							   " <option>igual</option> "+
 							   " <option>></option> "+
 							   " <option>>=</option> "+
@@ -52,7 +66,7 @@
 						       " </p>	"+
 					           " </td>"+
 					           " <td> "+
-						       " <p><input type='text' name='' placeholder='Escriba sus texto de busqueda' style='width: 100%;''></p>"+	
+						       " <p><input type='text' name='' placeholder='Escriba sus texto de busqueda' style='width: 100%;'' id='txt-busqueda' name='txt-busqueda'></p>"+	
 					           "</td>"+
 					           "<td>"+
 				"<p><input type='button' value=' --- ' id='btn-close' style='width: 100%;' onclick='close_div()'></p>"+
@@ -60,8 +74,8 @@
 				               "</tr>";
             		$( "#div-tabla-filtros").append(Texto);
             });	
-		    $( "#btn-filtro" ).click(function() {	
-		    	if ($('#btn-filtro:checked').val() !== undefined){
+		    $( "#chk-filtro" ).click(function() {	
+		    	if ($('#chk-filtro:checked').val() !== undefined){
     				//Checked
     				$('#div-select-filtro').show();
 				}else{
@@ -123,88 +137,87 @@
 
 </header>
 
-
-
-
-<div style="margin-left: 0%; ">
-	<h1>Reporte del plan de Auditoria Interna</h1>
-	<p >Find me in app/views/paquetes/plan.html.erb</p>
-	<label><STRONG></STRONG>Periodo del plan</label>
-	<select id="select_periodo" style="width: 13%;" >
-		<option value="2018">2018</option>
-		<option value="2019">2019</option>
-	</select>
-	<button id="btnConsulta" name="btnConsulta">Consultar</button>
-	<br></br>
-	<div class="div-filtros">
-		<p>Filtro:<input class="btn" id="btn-filtro" name="btn-filtro" type="checkbox" >
-		</p>
-	</div>
-	
-	<div class="div-consulta" id="div-select-filtro" name="div-select-filtro" style="width: 40%;">
-			<input type="button" id="btn-agregar-filtro" value="+" style="margin-left: 90%; width: 10%;">
-			<br></br>
-			<table class="tabla-filtros" id="div-tabla-filtros" style="border: 1px solid; width: 150%;">
-				<tr>
-					<th style="width: 30%;">Campo:</th>
-					<th style="width: 30%;" >Tipo:</th>
-					<th>Texto de busqueda:</th>
-					<th></th>
-				</tr >
-					<tr id="div-fila-filtros" name="div-fila-filtros">
-						<td  ><p>
-								<select>
-									<option>-</option>
-									<option>Responsable</option>
-									<option>Estado</option>
-								</select>
-							</p>
-						</td>
-						<td >
-							<p> 
-								<select>
-									<option>-</option>
-									<option>contiene</option>
-									<option>igual</option>
-									<option>></option>
-									<option>>=</option>
-									<option><</option>
-									<option><=</option>
-								</select>
-							</p>	
-						</td>
-						<td style="width: 200%;">
-							<p><input type="text" name="" placeholder="Escriba sus texto de busqueda" style="width: 100%;"></p>	
-						</td>
-						<td>
-							<p><input type="button" value=" --- " id="btn-close" onclick="close_div();" style="width: 100%;"></p>
-						</td>
-					</tr>
+<form id="form-main" name="form-main">
+	<div style="margin-left: 0%; ">
+		<h1>Reporte del plan de Auditoria Interna</h1>
+		<p >Find me in app/views/paquetes/plan.html.erb</p>
+		<label><STRONG></STRONG>Periodo del plan</label>
+		<select id="select_periodo" style="width: 13%;" >
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+		</select>
+		<button id="btnConsulta" name="btnConsulta">Consultar</button>
+		<br></br>
+		<div class="div-filtros">
+			<p>Filtro:<input class="btn" id="chk-filtro" name="chk-filtro" type="checkbox" >
+			</p>
+		</div>
+		
+		<div class="div-consulta" id="div-select-filtro" name="div-select-filtro" style="width: 40%;">
+				<input type="button" id="btn-agregar-filtro" value="+" style="margin-left: 90%; width: 10%;">
+				<br></br>
+				<table class="tabla-filtros" id="div-tabla-filtros" style="border: 1px solid; width: 150%;">
+					<tr>
+						<th style="width: 30%;">Campo:</th>
+						<th style="width: 30%;" >Tipo:</th>
+						<th>Texto de busqueda:</th>
+						<th></th>
+					</tr >
+						<tr id="div-fila-filtros" name="div-fila-filtros">
+							<td  ><p>
+									<select id='select-campo' name='select-campo'>
+										<option>-</option>
+										<option>Responsable</option>
+										<option>Estado</option>
+									</select>
+								</p>
+							</td>
+							<td >
+								<p> 
+									<select id='select-tipo' name='select-tipo'>
+										<option>-</option>
+										<option>contiene</option>
+										<option>igual</option>
+										<option>></option>
+										<option>>=</option>
+										<option><</option>
+										<option><=</option>
+									</select>
+								</p>	
+							</td>
+							<td style="width: 200%;">
+								<p><input type="text" name="" placeholder="Escriba sus texto de busqueda" style="width: 100%;" id='txt-busqueda' name='txt-busqueda'></p>	
+							</td>
+							<td>
+								<p><input type="button" value=" --- " id="btn-close" onclick="close_div();" style="width: 100%;"></p>
+							</td>
+						</tr>
+					
+				</table>
+				<p><input type="button" name="btn-filtro" id="btn-filtro" value="Consultar" style="width: 25%;"></p>
+					
+				    
 				
+		    
+		</div>
+		
+		<div id="div-tabla" name="div-tabla" class="table table-hover">
+			<table id="tabla_plan" name="tabla_plan"  style="border: red 1px solid; width:72%;">
+			  <tr style="border: green 1px solid; ">
+			  	<th style="border: green 1px solid;  padding: 2px; width: 1%">Paquete</th>
+			  	<th style="border: green 1px solid;  padding: 2px; width: 1%;">Proceso</th>
+			    <!-- <th style="border: green 1px solid;  padding: 10px;">Fecha</th> -->
+			    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Procedimiento</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Responsable</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. Plan. Iniciar</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. Plan. Finalizar</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Dias</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. de Asignacion</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. de Entrega</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Entrega</th>
+			    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Estado</th>
+			  </tr>
 			</table>
-			<p><input type="button" name="" value="Consultar" style="width: 25%;"></p>
-				
-			    
-			
-	    
+		</div>
 	</div>
-	
-	<div id="div-tabla" name="div-tabla" class="table table-hover">
-		<table id="tabla_plan" name="tabla_plan"  style="border: red 1px solid; width:72%;">
-		  <tr style="border: green 1px solid; ">
-		  	<th style="border: green 1px solid;  padding: 2px; width: 1%">Paquete</th>
-		  	<th style="border: green 1px solid;  padding: 2px; width: 1%;">Proceso</th>
-		    <!-- <th style="border: green 1px solid;  padding: 10px;">Fecha</th> -->
-		    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Procedimiento</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Responsable</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. Plan. Iniciar</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. Plan. Finalizar</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 1%;">Dias</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. de Asignacion</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Fec. de Entrega</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Entrega</th>
-		    <th style="border: green 1px solid;  padding: 1px; width: 2%;">Estado</th>
-		  </tr>
-		</table>
-	</div>
-</div>
+</form>
