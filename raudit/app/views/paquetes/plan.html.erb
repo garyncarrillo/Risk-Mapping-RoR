@@ -30,10 +30,8 @@
 			    $.each($("select"), function(){
 			    	var Objeto = $(this).attr('id');
 			    	$(this).each(function(){
-			    		alert($(this).text());
+			    		alert($(this).find('option:selected').text());
 			    	});	
-			    	//alert($(this).text());
-			    	//alert(Objeto);
 			    });
 			 
 			});
@@ -137,7 +135,7 @@
 
 </header>
 
-<form id="form-main" name="form-main">
+
 	<div style="margin-left: 0%; ">
 		<h1>Reporte del plan de Auditoria Interna</h1>
 		<p >Find me in app/views/paquetes/plan.html.erb</p>
@@ -220,4 +218,3 @@
 			</table>
 		</div>
 	</div>
-</form>
