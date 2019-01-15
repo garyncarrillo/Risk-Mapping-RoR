@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Estado Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Idestado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estado_plans.each do |estado_plan| %>
+      <tr>
+        <td><%= estado_plan.descripcion %></td>
+        <% @Resultado = Estado.where(id:estado_plan.idestado)
+        @Resultado.each do |row| %>
+              <td><%= row.descripcion %></td>
+        <%end %>
+
+        <td><%= link_to 'Mostrar', estado_plan %></td>
+        <td><%= link_to 'Editar', edit_estado_plan_path(estado_plan) %></td>
+        <td><%= link_to 'Eliminar', estado_plan, method: :delete, data: { confirm: 'Estas seguro que deseas Eliminar??' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estado Plan', new_estado_plan_path %>

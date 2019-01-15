@@ -122,6 +122,8 @@ rails g scaffold  paquete_plan_to_procedimiento idpaquete:string idprocedimiento
 rails g scaffold paquetes_plan_to_fecha idpaquete:bigint responsable:string fecha_plan_i:date fecha_plan_f:date fecha_inicio:date fecha_fin:date dias:integer comentarios:text estado:bigint
 
 
+rails g scaffold estado_plan descripcion:string idestado:bigint
+
 rails generate migration keyPaquetePlanToProcedimiento
 
 #Agregar foreing keys

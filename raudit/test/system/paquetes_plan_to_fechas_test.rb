@@ -16,6 +16,7 @@ class PaquetesPlanToFechasTest < ApplicationSystemTestCase
 
     fill_in "Comentarios", with: @paquetes_plan_to_fecha.comentarios
     fill_in "Dias", with: @paquetes_plan_to_fecha.dias
+    fill_in "Estado", with: @paquetes_plan_to_fecha.estado
     fill_in "Fecha Fin", with: @paquetes_plan_to_fecha.fecha_fin
     fill_in "Fecha Inicio", with: @paquetes_plan_to_fecha.fecha_inicio
     fill_in "Fecha Plan F", with: @paquetes_plan_to_fecha.fecha_plan_f
@@ -34,6 +35,7 @@ class PaquetesPlanToFechasTest < ApplicationSystemTestCase
 
     fill_in "Comentarios", with: @paquetes_plan_to_fecha.comentarios
     fill_in "Dias", with: @paquetes_plan_to_fecha.dias
+    fill_in "Estado", with: @paquetes_plan_to_fecha.estado
     fill_in "Fecha Fin", with: @paquetes_plan_to_fecha.fecha_fin
     fill_in "Fecha Inicio", with: @paquetes_plan_to_fecha.fecha_inicio
     fill_in "Fecha Plan F", with: @paquetes_plan_to_fecha.fecha_plan_f

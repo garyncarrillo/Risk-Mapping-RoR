@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Idpaquete:</strong>
+  <strong>Paquete:</strong>
   <% @Resultado = PaquetePlan.where(id:@paquetes_plan_to_fecha.idpaquete)
   @Resultado.each do |row| %>
             <%= row.nombre %>
   <%end %>
+
 </p>
 
 <p>
@@ -14,33 +15,42 @@
 </p>
 
 <p>
-  <strong>Fecha plan i:</strong>
+  <strong>Fecha Planeada Iniciar:</strong>
   <%= @paquetes_plan_to_fecha.fecha_plan_i %>
 </p>
 
 <p>
-  <strong>Fecha plan f:</strong>
+  <strong>Fecha Planeada Finalizar:</strong>
   <%= @paquetes_plan_to_fecha.fecha_plan_f %>
 </p>
 
 <p>
-  <strong>Fecha inicio:</strong>
+  <strong>Fecha Asignada:</strong>
   <%= @paquetes_plan_to_fecha.fecha_inicio %>
 </p>
 
 <p>
-  <strong>Fecha fin:</strong>
+  <strong>Fecha Entregada:</strong>
   <%= @paquetes_plan_to_fecha.fecha_fin %>
 </p>
 
 <p>
-  <strong>Dias:</strong>
+  <strong>Dias duracion (hr):</strong>
   <%= @paquetes_plan_to_fecha.dias %>
 </p>
 
 <p>
   <strong>Comentarios:</strong>
   <%= @paquetes_plan_to_fecha.comentarios %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <% @Resultado = EstadoPlan.where(id:@paquetes_plan_to_fecha.estado)
+  @Resultado.each do |row| %>
+        <%= row.descripcion %>
+  <%end %>
+
 </p>
 
 <%= link_to 'Editar', edit_paquetes_plan_to_fecha_path(@paquetes_plan_to_fecha) %> |

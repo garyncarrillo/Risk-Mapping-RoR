@@ -9,6 +9,7 @@ class CreatePaquetesPlanToFechas < ActiveRecord::Migration[5.2]
       t.date :fecha_fin
       t.integer :dias
       t.text :comentarios
+      t.bigint :estado
 
       t.timestamps
     end

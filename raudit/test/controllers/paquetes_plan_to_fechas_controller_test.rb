@@ -17,7 +17,7 @@ class PaquetesPlanToFechasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create paquetes_plan_to_fecha" do
     assert_difference('PaquetesPlanToFecha.count') do
-      post paquetes_plan_to_fechas_url, params: { paquetes_plan_to_fecha: { comentarios: @paquetes_plan_to_fecha.comentarios, dias: @paquetes_plan_to_fecha.dias, fecha_fin: @paquetes_plan_to_fecha.fecha_fin, fecha_inicio: @paquetes_plan_to_fecha.fecha_inicio, fecha_plan_f: @paquetes_plan_to_fecha.fecha_plan_f, fecha_plan_i: @paquetes_plan_to_fecha.fecha_plan_i, idpaquete: @paquetes_plan_to_fecha.idpaquete, responsable: @paquetes_plan_to_fecha.responsable } }
+      post paquetes_plan_to_fechas_url, params: { paquetes_plan_to_fecha: { comentarios: @paquetes_plan_to_fecha.comentarios, dias: @paquetes_plan_to_fecha.dias, estado: @paquetes_plan_to_fecha.estado, fecha_fin: @paquetes_plan_to_fecha.fecha_fin, fecha_inicio: @paquetes_plan_to_fecha.fecha_inicio, fecha_plan_f: @paquetes_plan_to_fecha.fecha_plan_f, fecha_plan_i: @paquetes_plan_to_fecha.fecha_plan_i, idpaquete: @paquetes_plan_to_fecha.idpaquete, responsable: @paquetes_plan_to_fecha.responsable } }
     end
 
     assert_redirected_to paquetes_plan_to_fecha_url(PaquetesPlanToFecha.last)
@@ -34,7 +34,7 @@ class PaquetesPlanToFechasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update paquetes_plan_to_fecha" do
-    patch paquetes_plan_to_fecha_url(@paquetes_plan_to_fecha), params: { paquetes_plan_to_fecha: { comentarios: @paquetes_plan_to_fecha.comentarios, dias: @paquetes_plan_to_fecha.dias, fecha_fin: @paquetes_plan_to_fecha.fecha_fin, fecha_inicio: @paquetes_plan_to_fecha.fecha_inicio, fecha_plan_f: @paquetes_plan_to_fecha.fecha_plan_f, fecha_plan_i: @paquetes_plan_to_fecha.fecha_plan_i, idpaquete: @paquetes_plan_to_fecha.idpaquete, responsable: @paquetes_plan_to_fecha.responsable } }
+    patch paquetes_plan_to_fecha_url(@paquetes_plan_to_fecha), params: { paquetes_plan_to_fecha: { comentarios: @paquetes_plan_to_fecha.comentarios, dias: @paquetes_plan_to_fecha.dias, estado: @paquetes_plan_to_fecha.estado, fecha_fin: @paquetes_plan_to_fecha.fecha_fin, fecha_inicio: @paquetes_plan_to_fecha.fecha_inicio, fecha_plan_f: @paquetes_plan_to_fecha.fecha_plan_f, fecha_plan_i: @paquetes_plan_to_fecha.fecha_plan_i, idpaquete: @paquetes_plan_to_fecha.idpaquete, responsable: @paquetes_plan_to_fecha.responsable } }
     assert_redirected_to paquetes_plan_to_fecha_url(@paquetes_plan_to_fecha)
   end
 

@@ -3,19 +3,21 @@
 one:
   idpaquete: 
   responsable: MyString
-  fecha_plan_i: 2018-12-19
-  fecha_plan_f: 2018-12-19
-  fecha_inicio: 2018-12-19
-  fecha_fin: 2018-12-19
+  fecha_plan_i: 2019-01-15
+  fecha_plan_f: 2019-01-15
+  fecha_inicio: 2019-01-15
+  fecha_fin: 2019-01-15
   dias: 1
   comentarios: MyText
+  estado: 
 
 two:
   idpaquete: 
   responsable: MyString
-  fecha_plan_i: 2018-12-19
-  fecha_plan_f: 2018-12-19
-  fecha_inicio: 2018-12-19
-  fecha_fin: 2018-12-19
+  fecha_plan_i: 2019-01-15
+  fecha_plan_f: 2019-01-15
+  fecha_inicio: 2019-01-15
+  fecha_fin: 2019-01-15
   dias: 1
   comentarios: MyText
+  estado: 

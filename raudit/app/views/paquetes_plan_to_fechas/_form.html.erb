@@ -12,43 +12,49 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :idpaquete %>
+    <%= form.label :'Paquetes' %>
     <%= form.collection_select(:idpaquete, PaquetePlan.all, :id, :nombre) %>
   </div>
 
   <div class="field">
-    <%= form.label :responsable %>
+    <%= form.label :Responsable %>
     <%= form.text_field :responsable %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha_plan_i %>
+    <%= form.label :'Fecha Planeada Iniciar  '%>
     <%= form.date_select :fecha_plan_i %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha_plan_f %>
+    <%= form.label :'Fecha Planeada Finalizar'%>
     <%= form.date_select :fecha_plan_f %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha_inicio %>
+    <%= form.label :'Fecha Asignada' %>
     <%= form.date_select :fecha_inicio %>
   </div>
 
   <div class="field">
-    <%= form.label :fecha_fin %>
+    <%= form.label :'Fecha Entregada' %>
     <%= form.date_select :fecha_fin %>
   </div>
 
   <div class="field">
-    <%= form.label :dias %>
+    <%= form.label :'Dias duracion (hr)'%>
     <%= form.number_field :dias %>
   </div>
 
   <div class="field">
-    <%= form.label :comentarios %>
+    <%= form.label :Comentarios %>
     <%= form.text_area :comentarios %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Estado %>
+    <%= form.collection_select(:estado, EstadoPlan.all, :id, :descripcion) %>
+
   </div>
 
   <div class="actions">

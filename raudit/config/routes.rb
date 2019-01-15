@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'paquetes/plan'
+  resources :estado_plans
   resources :paquetes_plan_to_fechas
+  get 'paquetes/plan'
   resources :paquete_plan_to_procedimientos
   get 'paquetes/asignar'
   resources :paquete_plans

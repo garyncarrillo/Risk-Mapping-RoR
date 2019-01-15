@@ -1,0 +1,2 @@
+class EstadoPlan < ApplicationRecord
+end

@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_20_160359) do
+ActiveRecord::Schema.define(version: 2019_01_15_141322) do
 
   create_table "centros", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
     t.string "estados_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "estado_plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "descripcion"
+    t.bigint "idestado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_160359) do
     t.date "fecha_fin"
     t.integer "dias"
     t.text "comentarios"
+    t.bigint "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
