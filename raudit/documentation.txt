@@ -1,0 +1,9 @@
+
+gem install bootstrap -v 4.2.1
+
+Instalacion de BOOTSRAP
+adiciona en el archivo de gefile 
+gem 'bootstrap', '~> 4.2.1'
+
+instalando bootstrap
+rails g controller main aplicacion
